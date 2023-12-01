@@ -1,0 +1,11 @@
+{
+  "name": "todo-react-rest-mysql",
+  "version": "1.0.0",
+  "description": "Task App with REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JABRI_Karim (JAKAR79)",
+  "license": "ISC"
+}
