@@ -7,21 +7,18 @@ mkdir routes
 mkdir db
 mkdir controllers
 npm init
-npm i mysql
-npm i express
-npm i body-parser
-npm i cors
-npm i morgan
-npm i nodemon.
+npm i mysql express body-parser cors morgan nodemon
 ```
 
 ## PREPARE YOUR MYSQL SERVER
 ```
 sudo apt install mysql-server
+sudo mysql_secure_installation
 systemctl start mysql.service
 sudo mysql
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-mysql>exit
+mysql> STATUS;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';
+mysql> exit
 mysql -u root -p
 ```
 ```
@@ -46,12 +43,12 @@ systemctl status apache2.service
 ## PREPARE THE PHPMYADMIN
 
 ```
-sudo apt install php8.1
-sudo apt install 
-sudo apt install php-mysql php-mbstring php-zip php-gd php-json php-curl 
+sudo apt-get install ca-certificates apt-transport-https software-properties-common wget curl lsb-release
+sudo apt install php8.1 libapache2-mod-php8.1
+sudo apt install php php-{fpm,mbstring,bcmath,xml,mysql,common,gd,cli,curl,zip}
 sudo apt install phpmyadmin
-mysql -u root -p
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+sudo> mysql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';
 mysql> INSTALL COMPONENT "file://component_validate_password";
 exit
 ```
