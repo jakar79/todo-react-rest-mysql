@@ -69,3 +69,8 @@ if this error is appar (Apache/2.4.52 (Ubuntu) Server at localhost Port )
 ```
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin & then sudo /etc/init.d/apache2 reload
 ```
+## ALTERNATIVE SOLUTION
+
+### xamp
+
+Download XAMPP "https://www.apachefriends.org/download.html".
