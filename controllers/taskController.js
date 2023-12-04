@@ -31,4 +31,15 @@ exports.createList = (req, res) => {
         if(err) return res.json(err);
         return res.status(200).json(result);
     });
+};
+
+//SHOW TASKS
+
+exports.showTasks = (req, res) => {
+    const qry = 'SELECT * FROM tasks';
+
+    db.query(qry, (err, result) => {
+        if (err) return res.json(err);
+        return res.status(200).json(result);
+    });
 }
