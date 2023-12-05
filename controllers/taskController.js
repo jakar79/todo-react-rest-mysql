@@ -1,6 +1,6 @@
 const db = require('../db/database');
 
-//CREATE DB
+//CREATE database
 
 exports.createDB = (req, res) => {
     let qry = 'CREATE DATABASE taskslist';
@@ -33,13 +33,24 @@ exports.createList = (req, res) => {
     });
 };
 
-//SHOW TASKS
+//SHOW LIST
 
-exports.showTasks = (req, res) => {
+exports.showList = (req, res) => {
     const qry = 'SELECT * FROM tasks';
 
     db.query(qry, (err, result) => {
         if (err) return res.json(err);
         return res.status(200).json(result);
+    });
+};
+
+//SHOW SINGLE RECORDING
+
+exports.singleRec = (req, res) => {
+    const qry = `SELECT * FROM tasks WHERE id=${req.params.id}`;
+
+    db.query(qry, (err, result) => {
+        if(err) return res.json(err);
+        return res.status(200).json(result[0]);
     });
 }

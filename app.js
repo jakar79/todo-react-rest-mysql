@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const tasks = require('./routes/taskRoutes');
+const urls = require('./routes/urlRoutes');
 
 //PASSERELLE SERVICES
 
@@ -13,15 +13,15 @@ app.use(bodyParser.json({limit: "5mb"}));
 app.use(bodyParser.urlencoded({limit: "5mb", extended: true}));
 app.use(cors());
 
-//ROUTES PASSERELLE
+//URLS PASSERELLE
 
-app.use('/api', tasks)
+app.use('/api', urls)
 
 
-//SERVER PORT
+//SERVICE PORT
 
 const port = 8000;
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Service running on port ${port}`);
 });
 
