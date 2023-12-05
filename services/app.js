@@ -6,14 +6,14 @@ const cors = require('cors');
 
 const urls = require('./routes/urlRoutes');
 
-//PASSERELLE SERVICES
+//MIDDLEWARE SERVICES
 
 app.use(morgan('logger'));
 app.use(bodyParser.json({limit: "5mb"}));
 app.use(bodyParser.urlencoded({limit: "5mb", extended: true}));
 app.use(cors());
 
-//URLS PASSERELLE
+//URLS WODDLEPORT
 
 app.use('/api', urls)
 

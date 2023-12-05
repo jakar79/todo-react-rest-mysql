@@ -1,4 +1,6 @@
+const req = require('express/lib/request');
 const db = require('../db/database');
+const res = require('express/lib/response');
 
 //CREATE database
 
@@ -52,5 +54,30 @@ exports.singleRec = (req, res) => {
     db.query(qry, (err, result) => {
         if(err) return res.json(err);
         return res.status(200).json(result[0]);
+    });
+};
+
+//UPDATE RECORDING
+
+exports.updateRec = (req, res) => {
+    const { todo, priority} = req.body;
+
+    const qry = `UPDATE tasks SET ? WHERE id=${req.params.id}`;
+
+    db.query(qry, {todo, priority}, (err, result) => {
+        if(err) return res.json(err);
+        return res.status(200).json(result);
+    });
+};
+
+//DELETE RECORDING
+
+exports.deleteRec = (req, res) => {
+
+    const qry = `DELETE FROM tasks WHERE id=${req.params.id}`;
+
+    db.query(qry, (err, result) => {
+        if(err) return res.json(err);
+        return res.status(200).json({data: " task deleted"});
     });
 }
