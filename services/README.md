@@ -80,4 +80,4 @@ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin & then sudo /etc/init.
 
 ### xampp
 
-Download XAMPP "https://www.apachefriends.org/download.html".
+Download XAMPP from "https://www.apachefriends.org/download.html".
