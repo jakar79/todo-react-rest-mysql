@@ -1,4 +1,11 @@
-## PREPARE YOUR APP DIRECTORY
+# PREREQUISITES
+You need the following set of requirements:
+* Mysql server
+* Apache server
+* Php and PhpMyAdmin
+* nodejs
+
+## STEP #1: PREPARE YOUR APP DIRECTORY
 ```
 mkdir dir_app_name
 cd dir_app_name
@@ -10,7 +17,7 @@ npm init
 npm i mysql express body-parser cors morgan nodemon
 ```
 
-## PREPARE YOUR MYSQL SERVER
+## STEP #2: PREPARE YOUR MYSQL SERVER
 ```
 sudo apt install mysql-server
 sudo mysql_secure_installation
@@ -33,14 +40,14 @@ mysql> exit
 ```
 systemctl status mysql.service
 ```
-## PREPARE YOUR APACHE SERVER
+## STEP #3: PREPARE YOUR APACHE SERVER
 
 ```
 sudo apt install apache2
 sudo systemctl enable apache2
 systemctl status apache2.service 
 ```
-## PREPARE THE PHPMYADMIN
+## STEP #4: PREPARE THE PHPMYADMIN
 
 ```
 sudo apt-get install ca-certificates apt-transport-https software-properties-common wget curl lsb-release
