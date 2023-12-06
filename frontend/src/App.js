@@ -1,9 +1,9 @@
 import './App.css';
-
+import Header from './component/Header';
 const App = () => {
   return (
     <>
-      <h1>Hello Monkey!!</h1>
+      <Header />
 
     </>
   )
