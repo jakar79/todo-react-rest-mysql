@@ -4,6 +4,7 @@ You need the following set of requirements:
 * Apache server
 * Php and PhpMyAdmin
 * nodejs
+* Postman API Platform(for test)
 
 ## STEP #1: PREPARE YOUR APP DIRECTORY
 ```
