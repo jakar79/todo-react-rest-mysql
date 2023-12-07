@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import Header from './component/Header';
 import axios from 'axios';
+
+import './App.css';
 
 const App = () => {
   const [editMode, setEditMode] = useState(false);
@@ -17,10 +18,10 @@ const App = () => {
   }
 
 
-
   useEffect(()=> {
     showList();
   }, []);
+
 
   return (
     <>
