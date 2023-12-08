@@ -7,16 +7,34 @@ import './App.css';
 const App = () => {
   const [editMode, setEditMode] = useState(false);
   const [list, setList] = useState([]);
+  const [todo, setTodo] = useState('');
+  const [priority, setPriority] = useState('');
 
   const showList = async () => {
     try {
-      const {data} = axios.get('/api/show/list');
+      const { data } = await axios.get('/api/show/list');
       setList(data);
     } catch (error) {
       console.log(error);
     }
   }
 
+  const addRecord = async (e) => {
+    e.preventDefault();  
+    try {
+      
+      const add = await axios.post('/api/create/list', {todo, priority});
+
+      if (add.status === 200) {
+        setTodo('');
+        setPriority('');
+        showList();
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(()=> {
     showList();
@@ -28,13 +46,14 @@ const App = () => {
       <Header />
       <div className="container">
         <div className="form" style={{paddingBottom: "50px", paddingTop: " 50px"}} >
-          <form>
+          
+          <form onSubmit={addRecord}>
             <div className="form-wrapper" style={{display: "flex", justifyContent: "space-between"}} >
               <div style={{flex: 1, marginRight: "10px"}} >
-                <input className="form-control" type="text" placeholder="Todo" name="Todo" />
+                <input onChange={(e) => setTodo(e.target.value)} value={todo} className="form-control" type="text" placeholder="Todo" name="Todo" />
               </div>
               <div style={{flex: 1}} >
-              <input className="form-control" type="text" placeholder="Priority" name="Priority" />
+              <input onChange={(e) => setPriority(e.target.value)} value={priority} className="form-control" type="text" placeholder="Priority" name="Priority" />
               </div>
               {
                 editMode ? 
@@ -44,6 +63,7 @@ const App = () => {
               }  
             </div>
           </form>
+
         </div>
         <table className="table">
           <thead>
@@ -55,17 +75,21 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            
-            <tr>
-              <th scope="row">2</th>
-              <td>appeler mon pere</td>
-              <td>High</td>
+          {
+              list && list.map(df => (
+
+            <tr key={df.id}>
+              <th scope="row">{df.id}</th>
+              <td>{df.todo}</td>
+              <td>{df.priority}</td>
               <td>
                 <i className="fa-solid fa-pen-to-square" style={{ color: "green", cursor: "pointer", marginRight: "25px"}} ></i>
                 <i className="fa-solid fa-trash-can" style={{ color: "red", cursor: "pointer" }} ></i>
               </td>
             </tr>
             
+              ))
+          }  
 
           </tbody>
         </table>
