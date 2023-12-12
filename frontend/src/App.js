@@ -23,9 +23,9 @@ const App = () => {
     e.preventDefault();  
     try {
       
-      const add = await axios.post('/api/create/list', {todo, priority});
+      const insert = await axios.post('/api/insert/line', {todo, priority});
 
-      if (add.status === 200) {
+      if (insert.status === 200) {
         setTodo('');
         setPriority('');
         showList();
@@ -50,10 +50,10 @@ const App = () => {
           <form onSubmit={addRecord}>
             <div className="form-wrapper" style={{display: "flex", justifyContent: "space-between"}} >
               <div style={{flex: 1, marginRight: "10px"}} >
-                <input onChange={(e) => setTodo(e.target.value)} value={todo} className="form-control" type="text" placeholder="Todo" name="Todo" />
+                <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" />
               </div>
               <div style={{flex: 1}} >
-              <input onChange={(e) => setPriority(e.target.value)} value={priority} className="form-control" type="text" placeholder="Priority" name="Priority" />
+              <input value={priority} onChange={(e) => setPriority(e.target.value)} className="form-control" type="text" placeholder="Priority" name="Priority" />
               </div>
               {
                 editMode ? 

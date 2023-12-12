@@ -24,7 +24,7 @@ exports.createTable = (req, res) => {
 
 //CREATE LIST
 
-exports.createList = (req, res) => {
+exports.insertLine = (req, res) => {
     let qry = 'INSERT INTO tasks SET ?';
 
     const {todo, priority } = req.body;
@@ -35,7 +35,7 @@ exports.createList = (req, res) => {
     });
 };
 
-//SHOW LIST
+//SHOW LINE
 
 exports.showList = (req, res) => {
     const qry = 'SELECT * FROM tasks';
@@ -46,9 +46,9 @@ exports.showList = (req, res) => {
     });
 };
 
-//SHOW SINGLE RECORDING
+//SHOW SINGLE Task
 
-exports.singleRec = (req, res) => {
+exports.singleTask = (req, res) => {
     const qry = `SELECT * FROM tasks WHERE id=${req.params.id}`;
 
     db.query(qry, (err, result) => {
@@ -57,9 +57,9 @@ exports.singleRec = (req, res) => {
     });
 };
 
-//UPDATE RECORDING
+//UPDATE Task
 
-exports.updateRec = (req, res) => {
+exports.updateTask = (req, res) => {
     const { todo, priority} = req.body;
 
     const qry = `UPDATE tasks SET ? WHERE id=${req.params.id}`;
@@ -70,9 +70,9 @@ exports.updateRec = (req, res) => {
     });
 };
 
-//DELETE RECORDING
+//DELETE Task
 
-exports.deleteRec = (req, res) => {
+exports.deleteTask = (req, res) => {
 
     const qry = `DELETE FROM tasks WHERE id=${req.params.id}`;
 
