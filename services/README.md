@@ -4,7 +4,8 @@ You need the following set of requirements:
 * Apache server
 * Php and PhpMyAdmin
 * nodejs
-* Postman API Platform(for test)
+* Visual Studio Code
+* Postman Client API Platform Extension for VSC
 
 ## STEP #1: PREPARE YOUR APP DIRECTORY
 ```
