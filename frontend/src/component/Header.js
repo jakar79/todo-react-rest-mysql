@@ -5,7 +5,7 @@ const Header = () => {
     <>
         <div class="header" style={{ height: "50px"}}>
             <div>
-                <h5 style={{ padding: "15px"}}> TaskList With React NodeJs MySQL</h5>
+                <h5 style={{ padding: "15px"}}> TaskList App (React NodeJs MySQL)</h5>
             </div>
             
         </div>
