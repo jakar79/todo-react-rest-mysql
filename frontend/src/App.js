@@ -19,7 +19,8 @@ const App = () => {
     }
   }
 
-  const addRecord = async (e) => {
+  //add Line
+  const addLine = async (e) => {
     e.preventDefault();  
     try {
       
@@ -28,6 +29,21 @@ const App = () => {
       if (insert.status === 200) {
         setTodo('');
         setPriority('');
+        showList();
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //delete Line
+  const deleteLine = async (id) => {  
+    try {
+      
+      const deleteTask = await axios.delete(`/api/delete/task/${id}`);
+
+      if (deleteTask.status === 200) {
         showList();
       }
 
@@ -47,7 +63,7 @@ const App = () => {
       <div className="container">
         <div className="form" style={{paddingBottom: "50px", paddingTop: " 50px"}} >
           
-          <form onSubmit={addRecord}>
+          <form onSubmit={addLine}>
             <div className="form-wrapper" style={{display: "flex", justifyContent: "space-between"}} >
               <div style={{flex: 1, marginRight: "10px"}} >
                 <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" />
@@ -84,7 +100,7 @@ const App = () => {
               <td>{df.priority}</td>
               <td>
                 <i className="fa-solid fa-pen-to-square" style={{ color: "green", cursor: "pointer", marginRight: "25px"}} ></i>
-                <i className="fa-solid fa-trash-can" style={{ color: "red", cursor: "pointer" }} ></i>
+                <i onClick={() => deleteLine(df.id)} className="fa-solid fa-trash-can" style={{ color: "red", cursor: "pointer" }} ></i>
               </td>
             </tr>
             
