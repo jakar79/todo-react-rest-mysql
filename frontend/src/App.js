@@ -9,6 +9,7 @@ const App = () => {
   const [list, setList] = useState([]);
   const [todo, setTodo] = useState('');
   const [priority, setPriority] = useState('');
+  const [taskId, setTaskId] = useState('');
 
   const showList = async () => {
     try {
@@ -19,7 +20,7 @@ const App = () => {
     }
   }
 
-  //add Line
+  // Add Line
   const addLine = async (e) => {
     e.preventDefault();  
     try {
@@ -37,13 +38,51 @@ const App = () => {
     }
   }
 
-  //delete Line
+  // Delete Line
   const deleteLine = async (id) => {  
     try {
       
       const deleteTask = await axios.delete(`/api/delete/task/${id}`);
 
       if (deleteTask.status === 200) {
+        showList();
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Edit selected Line
+  const editSelectedLine = async (id) => {  
+    setEditMode(true);
+
+    try {
+      
+      const { data } = await axios.get(`/api/task/${id}`);
+      setTodo(data.todo);
+      setPriority(data.priority);
+      setTaskId(data.id);
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Update Line
+  const updateLine = async (e) => {
+    e.preventDefault()
+
+    try {
+      
+      const update = await axios.put(`/api/update/task/${taskId}`, {todo, priority });
+      console.log(update)
+
+      if (update.status === 200) {
+        setEditMode(false);
+        setTodo('');
+        setPriority('');
         showList();
       }
 
@@ -92,15 +131,15 @@ const App = () => {
           </thead>
           <tbody>
           {
-              list && list.map(df => (
+              list && list.map(obj => (
 
-            <tr key={df.id}>
-              <th scope="row">{df.id}</th>
-              <td>{df.todo}</td>
-              <td>{df.priority}</td>
+            <tr key={obj.id}>
+              <th scope="row">{obj.id}</th>
+              <td>{obj.todo}</td>
+              <td>{obj.priority}</td>
               <td>
-                <i className="fa-solid fa-pen-to-square" style={{ color: "green", cursor: "pointer", marginRight: "25px"}} ></i>
-                <i onClick={() => deleteLine(df.id)} className="fa-solid fa-trash-can" style={{ color: "red", cursor: "pointer" }} ></i>
+                <i onClick={() => editSelectedLine(obj.id)} className="fa-solid fa-pen-to-square" style={{ color: "green", cursor: "pointer", marginRight: "25px"}} ></i>
+                <i onClick={() => deleteLine(obj.id)} className="fa-solid fa-trash-can" style={{ color: "red", cursor: "pointer" }} ></i>
               </td>
             </tr>
             
