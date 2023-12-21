@@ -102,7 +102,7 @@ const App = () => {
       <div className="container">
         <div className="form" style={{paddingBottom: "50px", paddingTop: " 50px"}} >
           
-          <form onSubmit={addLine}>
+          <form onSubmit={ editMode ? updateLine : addLine}>
             <div className="form-wrapper" style={{display: "flex", justifyContent: "space-between"}} >
               <div style={{flex: 1, marginRight: "10px"}} >
                 <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" />
@@ -112,7 +112,7 @@ const App = () => {
               </div>
               {
                 editMode ? 
-                <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-primary" >Edit</button>
+                <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-primary" >Update</button>
                 :
                 <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-success" >+ Add</button>
               }  
