@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# PREREQUISITES
+You need the following set of requirements:
+* Mysql server
+* Apache server
+* Php and PhpMyAdmin
+* nodejs
+* Visual Studio Code
+* Postman Client API Platform Extension for VSC
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## STEP #1: PREPARE YOUR APP DIRECTORY
+```
+mkdir dir_app_name
+cd dir_app_name
+touch app.js
+mkdir routes
+mkdir db
+mkdir controllers
+npm init
+npm i mysql express body-parser cors morgan nodemon
+```
 
-## Available Scripts
+## STEP #2: PREPARE YOUR MYSQL SERVER
+```
+sudo apt install mysql-server
+sudo mysql_secure_installation
+systemctl start mysql.service
+sudo mysql
+mysql> STATUS;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';
+mysql> exit
+mysql -u root -p
+```
+```
+mysql> UNINSTALL COMPONENT "file://component_validate_password";
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+mysql> CREATE USER 'myuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Strong@Pass123';
+mysql> CREATE DATABASE mydatabase;
+mysql> GRANT ALL PRIVILEGES ON mydatabase.* TO 'myuser'@'localhost' WITH GRANT OPTION;
+mysql> FLUSH PRIVILEGES;
+mysql> exit
+```
+```
+systemctl status mysql.service
+```
+## STEP #3: PREPARE YOUR APACHE SERVER
 
-In the project directory, you can run:
+```
+sudo apt install apache2
+sudo systemctl enable apache2
+systemctl status apache2.service 
+```
+## STEP #4: PREPARE THE PHPMYADMIN
 
-### `npm start`
+```
+sudo apt-get install ca-certificates apt-transport-https software-properties-common wget curl lsb-release
+sudo apt install php8.1 libapache2-mod-php8.1
+sudo apt install php php-{fpm,mbstring,bcmath,xml,mysql,common,gd,cli,curl,zip}
+sudo apt install phpmyadmin
+sudo> mysql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';
+mysql> INSTALL COMPONENT "file://component_validate_password";
+exit
+```
+```
+sudo mysql_secure_installation 
+mysql -u root -p 
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Root@Pass123';
+exit
+```
+```
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+if this error is appar (Apache/2.4.52 (Ubuntu) Server at localhost Port ) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin & then sudo /etc/init.d/apache2 reload
+```
+## ALTERNATIVE SOLUTION
 
-### `npm test`
+### xampp
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Download XAMPP from "https://www.apachefriends.org/download.html".
