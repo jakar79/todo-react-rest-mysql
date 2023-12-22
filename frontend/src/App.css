@@ -26,6 +26,7 @@ body {
   text-align: justify;
   padding: 1rem 1rem;
   font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 
 .container {
@@ -62,7 +63,7 @@ body {
 
 .table thead th{
   background: rgba(31, 128, 57, 0.9);
-  color: #fff;
+  color: #fafafa;
   font-size: 1rem;
   padding: 0.8rem;
   letter-spacing: 0.1rem;
