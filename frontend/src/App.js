@@ -107,8 +107,8 @@ const App = () => {
               <div style={{flex: 1, marginRight: "10px"}} >
                 <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" />
               </div>
-              <div style={{flex: 1}} >
-              <select value={priority} onChange={(e) => setPriority(e.target.value)} className="form-control" type="text" placeholder="Priority" name="Priority">
+              <div style={{flex: 0.1}} >
+              <select value={priority} onChange={(e) => setPriority(e.target.value)} className="border p-2 rounded w-full" type="text" placeholder="Priority" name="Priority">
                   <option>Low</option>
                   <option>Medium</option>
                   <option>High</option>
