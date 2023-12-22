@@ -3,9 +3,9 @@ import React from 'react';
 const Header = () => {
   return (
     <>
-        <div class="header" style={{ height: "50px"}}>
+        <div class="header" >
             <div>
-                <h5 style={{ padding: "15px"}}> TaskList App (React NodeJs MySQL)</h5>
+                <h5> TaskList App (React NodeJs MySQL)</h5>
             </div>
             
         </div>

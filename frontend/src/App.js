@@ -114,13 +114,13 @@ const App = () => {
                 editMode ? 
                 <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-primary" >Update</button>
                 :
-                <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-success" >+ Add</button>
+                <button type="submit" style={{ width: "200px", marginLeft: "10px" }} className="btn btn-success" > +Add</button>
               }  
             </div>
           </form>
 
         </div>
-        <table className="table">
+        <table className="table" >
           <thead>
             <tr>
             <th scope="col"> id</th>

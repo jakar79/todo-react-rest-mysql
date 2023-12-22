@@ -1,29 +1,43 @@
 *{
   margin: 0;
   padding: 0;
-  outline: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
 }
 
 body {
-  background-color: rgb(255, 255, 255);
-  color: rgb(253, 253, 253);
+  background-color: #ccc;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .header {
-  background: rgb(31, 128, 57);
-  text-align: justify;
+  background: rgba(31, 128, 57, 0.9);
+  height: 50px;
   padding: "20px";
+  display: flexbox;
   
 }
 
+.header h5 {
+  
+  color: #fafafa;
+  text-align: justify;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+}
+
 .container {
+  max-width: 1440px;
+  width: 80%;
   position: absolute;
   top:10%;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
-  opacity: .9;
+  opacity: 0.9;
   background: rgb(175, 175, 175);
   border-radius: 12px 12px 0 0;
   
@@ -33,7 +47,7 @@ body {
   position:absolute;
   z-index: 2;
   left: 50%;
-  top: 40%;
+  top: 30%;
   transform: translate(-50%,-50%);
   width: 90%;
   border-collapse: collapse;
@@ -45,3 +59,13 @@ body {
   text-align: center;
 
 }
+
+.table thead th{
+  background: rgba(31, 128, 57, 0.9);
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.8rem;
+  letter-spacing: 0.1rem;
+  vertical-align: top;
+}
+
