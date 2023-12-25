@@ -105,13 +105,14 @@ const App = () => {
           <form onSubmit={ editMode ? updateLine : addLine}>
             <div className="form-wrapper" style={{display: "flex", justifyContent: "space-between"}} >
               <div style={{flex: 1, marginRight: "10px"}} >
-                <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" />
+                <input value={todo} onChange={(e) => setTodo(e.target.value)} className="form-control" type="text" placeholder="Todo" name="Todo" required />
               </div>
               <div style={{flex: 0.1}} >
               <select value={priority} onChange={(e) => setPriority(e.target.value)} className="border p-2 rounded w-full" type="text" placeholder="Priority" name="Priority">
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
+                <option>--Preiority--</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
               </select>
               </div>
               {

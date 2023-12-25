@@ -47,9 +47,8 @@ body {
 .table {
   position:absolute;
   z-index: 2;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%,-50%);
+  left: 5%;
+  top: 15%;
   width: 90%;
   border-collapse: collapse;
   border-spacing: 0;
