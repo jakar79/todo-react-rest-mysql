@@ -1,8 +1,15 @@
+@media only screen and (max-width: 768px) {
+  .content-table {
+    width: 90%;
+  }
+}
+
 *{
   padding: 0;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 
 body {
   background-color: #dcdcdc;
@@ -11,42 +18,32 @@ body {
   min-height: 100vh;
 }
 
-.header {
+h5 {
   font-weight: 600;
+  color: #fafafa;
   text-align: left;
   background-color: rgba(31, 128, 57, 0.9);
   color: #fff;
-  padding: "10px 0";
- 
-  
-}
-
-.header h5 {
-  color: #fafafa;
-  text-align: justify;
   padding: 1rem 1rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+ 
 }
 
 .content-table {
   position: absolute;
   left: 50%;
-  top: 0%;
+  top: 2%;
   width: 800px;
   height: 200px;
   transform: translate(-50%, 50%);
   background-color: #fafafa;
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9rem;
-  min-width: 360px;
+  
+
+  
+
   border-radius: 12px 12px 0 0;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  
   text-align: center;
-
 }
 
 .content-table thead tr{
@@ -84,8 +81,3 @@ cursor: pointer;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media only screen and (max-width: 768px) {
-  .content-table {
-    width: 90%;
-  }
-}
