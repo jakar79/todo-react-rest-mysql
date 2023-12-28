@@ -1,28 +1,27 @@
 *{
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "poppins", sans-serif;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-  background-color: #ccc;
+  background-color: #dcdcdc;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
 .header {
-  background: rgba(31, 128, 57, 0.9);
-  height: 50px;
-  width:100%;
-  padding: "20px";
-  display: flexbox;
+  font-weight: 600;
+  text-align: left;
+  background-color: rgba(31, 128, 57, 0.9);
+  color: #fff;
+  padding: "10px 0";
+ 
   
 }
 
 .header h5 {
-  
   color: #fafafa;
   text-align: justify;
   padding: 1rem 1rem;
@@ -30,43 +29,63 @@ body {
   letter-spacing: 0.1rem;
 }
 
-.container {
-  max-width: 1440px;
-  width:max-content ;
+.content-table {
   position: absolute;
-  top:10%;
-  left: 5%;
-  right: 5%;
-  bottom: 0;
-  z-index: 1;
-  opacity: 0.9;
-  background: rgb(175, 175, 175);
-  border-radius: 12px 12px 0 0;
-  
-}
-
-.table {
-  position:absolute;
-  z-index: 2;
-  left: 5%;
-  top: 15%;
-  width: 90%;
+  left: 50%;
+  top: 0%;
+  width: 800px;
+  height: 200px;
+  transform: translate(-50%, 50%);
+  background-color: #fafafa;
   border-collapse: collapse;
-  border-spacing: 0;
-  border-radius: 12px 12px 12px 12px;
+  margin: 25px 0;
+  font-size: 0.9rem;
+  min-width: 360px;
+  border-radius: 12px 12px 0 0;
   overflow: hidden;
-  box-shadow: 0 12px 5px rgba(32, 32, 32, .3);
-  background: #fafafa;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  
   text-align: center;
 
 }
 
-.table thead th{
-  background: rgba(38, 42, 39, 0.9);
+.content-table thead tr{
+  background-color: #3e413f;
   color: #fafafa;
-  font-size: 1rem;
-  padding: 0.8rem;
+  text-align: center;
+  font-weight: bold;
   letter-spacing: 0.1rem;
-  vertical-align: top;
+  
 }
 
+.content-table th,
+.content-table td {
+padding: 12px 15px;  
+
+}
+
+.content-table tbody tr {
+border-bottom: 1px solid #d5d5d5ca;
+transition: all .2s ease-in;
+cursor: pointer;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #3e413f;
+}
+
+.content-table tbody tr:hover {
+  background-color: #d5d5d5ca;
+  transform: scale(1.02);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+  .content-table {
+    width: 90%;
+  }
+}

@@ -125,10 +125,10 @@ const App = () => {
           </form>
 
         </div>
-        <table className="table" >
+        <table className="content-table" >
           <thead>
             <tr>
-            <th scope="col"> id</th>
+              <th scope="col"> id</th>
               <th scope="col"> Todo</th>
               <th scope="col"> Priority</th>
               <th scope="col"> Actions</th>
