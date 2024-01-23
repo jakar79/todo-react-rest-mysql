@@ -31,15 +31,11 @@ h5 {
 .content-table {
   position: absolute;
   left: 50%;
-  top: 2%;
+  top: 20%;
   width: 800px;
   height: 200px;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%);
   background-color: #fafafa;
-  
-
-  
-
   border-radius: 12px 12px 0 0;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
